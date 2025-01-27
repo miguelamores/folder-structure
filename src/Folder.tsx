@@ -4,9 +4,14 @@ import Item from "./Item";
 
 const Folder = ({ files }: { files: FileType | undefined }) => {
   return (
-    <ul>
+    <ul className="list">
       <p>{files?.name}</p>
-      {files?.isFolder ? <Item children={files.children} /> : null}
+      {files?.isFolder &&
+        files.children?.map((item: FileType) => (
+          <li key={item.name} className="item">
+            <Folder files={item} />
+          </li>
+        ))}
     </ul>
   );
 };
