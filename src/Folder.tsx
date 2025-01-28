@@ -1,13 +1,6 @@
 import { useState } from "react";
 import Icon from "./Icon";
-import Item from "./Item";
-
-function getIconName(file: string) {
-  return file.split(".").pop();
-}
-function getFolderIconName(expanded: boolean) {
-  return expanded ? "caretDown" : "caretRight";
-}
+import { getFolderIconName, getIconName } from "./helpers";
 
 const Folder = ({ files }: { files: FileType | undefined }) => {
   const [expanded, setExpanded] = useState(false);
