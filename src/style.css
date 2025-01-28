@@ -29,7 +29,7 @@ p {
   align-items: flex-start;
   text-align: center;
   height: 100vh;
-  background: linear-gradient(to bottom, #5b21b6, #1e40af);
+  background-color: #191817;
   color: #fff;
   padding: 10px 20px;
 }
