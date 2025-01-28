@@ -7,44 +7,17 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Folder structure challenge
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+You're given a data.js file containing an object representing a folder structure. Every object inside of the global object has a key called isFolder
 
-- Configure the top-level `parserOptions` property like this:
+isFolder will let you know if the current object contains children or not. If true - object will have children.
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## User stories
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- A user should be able to click on a folder item, upon clicking, the folder will be expanded - showing the files and folders inside of it.
+- Use the data object to mimic a real world data folder scenario.
+- The <Folder /> component takes in a prop called files - which is the data object that we talked about earlier.
+- Based on the type of the file, appropriate extension icon should be visible right next to the label. For example, a index.js file will show a JavaScipt icon.
+- Appropriate paddings and margins should be provided to the children files and folders.
+- If a file is not a folder - nothing happens.
